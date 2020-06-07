@@ -1,0 +1,158 @@
+.card-form {
+    border: 1px solid rgba(223, 225, 229, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 450px;
+    width: 300px;
+    padding: 10px;
+    margin: 5px 30px 30px 30px;
+    border-radius: 15px;
+    user-select: none;
+}
+
+.attention-banner {
+    position: absolute;
+    width: inherit;
+    height: 50px;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: gold;
+    text-align: center;
+    display: table-cell;
+    line-height: 50px;
+    font-size: 32px;
+    font-weight: 600;
+    top: 35%;
+}
+
+.product-image_last-product {
+    position: relative;
+}
+
+.product-image {
+    height: 200px;
+    width: 290px;
+    background-image: url(../src/img/stub.jpg);
+    background-size: cover;
+    border-radius: 7px;
+}
+
+.product-information {
+    width: 290px;
+    border-top: 1px solid rgba(223, 225, 229, 1);
+    margin-top: 20px;
+    padding-top: 10px;
+}
+
+.data-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px 0px 10px;
+}
+
+.data-label_description {
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 12px;
+}
+
+.data-label_border-description {
+    border-color: rgba(223, 225, 229, 1);
+}
+
+.data-value {
+    width: 180px;
+}
+
+.description-title {
+    cursor: pointer;
+    width: 180px;
+    padding: 3px;
+    border: 1px solid rgba(223, 225, 229, 1);
+    border-radius: 16px;
+    text-align: center;
+    margin: 0px auto 0px auto;
+}
+
+.description-title:hover {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
+
+.description_closed:after {
+    content: "Open description";
+}
+
+.description_open:after {
+    content: "Close description";
+}
+
+.description-text {
+    margin-top: 6px;
+    padding: 3px;
+    word-wrap: normal;
+}
+
+.settings-card {
+    align-self: flex-end;
+    justify-self: end;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    width: 290px;
+    padding: 3px;
+    border: 1px solid white;
+}
+
+.icon_styled {
+    margin: 0px 5px;
+}
+
+.settings-control_closed:after {
+    content: "Open";
+}
+
+.settings-control_open:after {
+    content: "Close";
+}
+
+.text-wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid rgba(223, 225, 229, 1);
+    border-radius: 16px;
+    padding: 2px 12px 2px 2px;
+}
+
+.text-wrap:hover {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
+
+.element_hidden {
+    display: none;
+}
+
+.settings-card_bordered {
+    border-color: rgb(190, 192, 196);
+    border-radius: 20px;
+}
+
+.border-card_cheap {
+    border: 6px solid gray;
+    box-shadow: 0 1px 10px 0 gray;
+}
+
+.border-card_optimal {
+    border: 6px solid green;
+    box-shadow: 0 1px 10px 0 green;
+}
+
+.border-card_premium {
+    border: 6px solid gold;
+    box-shadow: 0 1px 10px 0 gold;
+}

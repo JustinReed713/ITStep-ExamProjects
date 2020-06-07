@@ -1,0 +1,52 @@
+/* review */
+
+.review-section {
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    padding: 100px 15px 100px 15px;
+}
+
+.review-section_background-image {
+    background-image: url('../src/images/banner3.jpg');
+    background-size: cover;
+}
+
+.review-section__title {
+    margin: 0 0 50px 0;
+    text-align: center;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 40px;
+    color: white;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.review-section__content-comment {
+    margin: 20px 0 20px 0;
+}
+
+.review-section__wrapper {
+    max-width: 1050px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.content-comment {
+    width: 40%;
+    min-width: 310px;
+}
+
+.content-comment__text {
+    line-height: 26px;
+}
+
+.content-comment__image {
+    width: 65px;
+    height: 65px;
+    border: 4px gray solid;
+    border-radius: 50%;
+    margin: 20px 0 20px 0;
+}

@@ -1,0 +1,113 @@
+.navigation {
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.navigation__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.navigation__link {
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+    outline: none;
+    padding: 0 30px 0 30px;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+.navigation__link:hover.navigation__link_active {
+    background: rgb(255, 255, 255);
+    color: rgb(250, 131, 131);
+}
+
+.dropdown-menu__wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__dropdown-menu {
+    position: relative;
+}
+
+.dropdown-link {
+    text-transform: capitalize;
+    text-decoration: none;
+    display: block;
+    height: 60px;
+    line-height: 60px;
+    outline: none;
+    padding: 0 30px 0 30px;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+}
+
+.dropdown-link:hover.dropdown-link_active {
+    background: rgb(255, 255, 255);
+    color: rgb(250, 131, 131);
+}
+
+.dropdown-link__wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dropdown-link__icon {
+    display: inline-block;
+    transform: rotateX(0deg);
+    transition: all 0.6s linear 0s;
+    margin: 0 0 0 10px;
+    font-size: 28px;
+    line-height: 60px;
+}
+
+.dropdown-menu:hover .dropdown-link__icon_animate {
+    transform: rotate(180deg);
+}
+
+.dropdown-list {
+    display: none;
+    color: rgb(250, 131, 131);
+    padding: 0 10px 0 10px;
+}
+
+.dropdown-list_background-color {
+    background: rgb(255, 255, 255);
+}
+
+.dropdown-menu__dropdown-list {
+    position: absolute;
+    top: 60px;
+    left: 10px;
+}
+
+.dropdown-menu:hover .dropdown-list_active {
+    display: block;
+}
+
+.dropdown-list__link {
+    display: block;
+    height: 60px;
+    color: rgb(250, 131, 131);
+    line-height: 60px;
+    text-transform: capitalize;
+    text-decoration: none;
+    outline: none;
+    padding: 0 30px 0 30px;
+    margin: 10px 0 10px 0;
+    cursor: pointer;
+}
+
+.dropdown-list__link:hover.dropdown-list__link_active {
+    background: linear-gradient(to right, rgb(250, 131, 131) 0%, rgb(250, 131, 131) 90%, rgb(255, 255, 255) 100%);
+    color: rgb(255, 255, 255);
+}

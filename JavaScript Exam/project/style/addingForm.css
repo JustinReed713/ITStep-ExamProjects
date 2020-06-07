@@ -1,0 +1,164 @@
+.background-styled {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.adding-form {
+    position: absolute;
+    width: 500px;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid rgba(223, 225, 229, 1);
+    box-shadow: 0 0 6px 6px rgba(229, 235, 255, 0.521);
+    border-radius: 26px;
+    user-select: none;
+}
+
+.adding-form__title {
+    padding-left: 20px;
+    padding-top: 5px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.adding-form__section {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(223, 225, 229, 1);
+    border-radius: 23px;
+}
+
+.form-section__legend {
+    margin-left: 25px;
+    padding: 0px 15px 3px 15px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.input_styled {
+    padding: 2px 15px 2px 15px;
+    width: 300px;
+    border: 1px solid rgba(223, 225, 229, 1);
+    border-radius: 18px;
+    box-shadow: inset 0px 1px 1px rgba(32, 33, 36, 0.28);
+    font-size: 24px;
+    outline: none;
+}
+
+.adding-form__label {
+    width: 450px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.adding-form__label_radio {
+    margin-left: 40px;
+    padding: 4px 10px 4px 10px;
+    width: 200px;
+    border-radius: 18px;
+    background-color: white;
+    box-shadow: 0 1px 6px 0 white;
+    transition: all 0.6s ease-out;
+}
+
+.adding-form__label_radio-cheap:hover {
+    box-shadow: 0 2px 6px 0 gray;
+}
+
+.adding-form__label_radio-optimal:hover {
+    box-shadow: 0 2px 6px 0 green;
+}
+
+.adding-form__label_radio-premium:hover {
+    box-shadow: 0 2px 6px 0 gold;
+}
+
+.adding-form__radio-input {
+    height: 18px;
+    width: 18px;
+}
+
+.adding-form__description-input {
+    width: 420px;
+    font-size: 18px;
+}
+
+.control-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.adding-form__button {
+    position: relative;
+    appearance: none;
+    font-size: 18px;
+    padding: 7px 12px 7px 9px;
+    margin: 10px 0px 0px 0px;
+    border: 1px solid rgba(223, 225, 229, 1);
+    border-radius: 18px;
+    outline: none;
+    background: white;
+}
+
+.adding-form__button:enabled:hover {
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+}
+
+.adding-form__button:active {
+    box-shadow: 0 0 2px 4px rgba(32, 33, 36, 0.28);
+}
+
+.input_valid {
+    box-shadow: 0 0 2px 2px green;
+}
+
+.input_invalid {
+    box-shadow: 0 0 2px 2px red;
+}
+
+.image-preview {
+    padding: 5px;
+    position: absolute;
+    left: 550px;
+    width: 250px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(223, 225, 229, 1);
+    box-shadow: 0px 1px 1px rgba(32, 33, 36, 0.28);
+    border-radius: 10px;
+    background-color: white;
+}
+
+.image-preview::before, .image-preview::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 90px;
+    border: 10px solid transparent;
+    border-right: 10px solid rgba(223, 225, 229, 1);
+}
+
+.image-preview::after {
+    border-right: 10px solid white;
+    top: 90px;
+}
+
+.image-preview__container {
+    width: 240px;
+    height: 170px;
+    border-radius: 7px;
+    border: 1px solid white;
+}
