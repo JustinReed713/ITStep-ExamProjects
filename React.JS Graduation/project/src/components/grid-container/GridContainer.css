@@ -1,0 +1,13 @@
+.grid-container {
+    width: 92%;
+    margin: 35px auto 10px auto;
+}
+
+.grid-container__wrapper {
+    padding-top: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    margin: 0px auto;
+}

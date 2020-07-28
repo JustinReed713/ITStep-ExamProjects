@@ -1,0 +1,14 @@
+.header {
+    margin: 0px auto 10px auto;
+    border-bottom: 4px solid rgba(223, 225, 229, 1);
+    text-align: center;
+    user-select: none;
+}
+
+.header__title {
+    font-size: 48px;
+    font-style: italic;
+    font-weight: 600;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}

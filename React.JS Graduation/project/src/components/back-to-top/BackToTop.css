@@ -1,0 +1,10 @@
+.scroller {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    background-color: white;
+    border: 1px solid rgba(223, 225, 229, 1);
+    border-radius: 30px;
+    height: fit-content;
+    width: fit-content;
+}

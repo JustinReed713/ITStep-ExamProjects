@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+}
+
+.header-menu__toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0px 20px 0px 20px;
+}
+
+.new-product-form .MuiBackdrop-root {
+  z-index: 3 !important;
+}
+
+.on-pending-backdrop .MuiBackdrop-root {
+  z-index: 1 !important;
+}
