@@ -3,7 +3,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import { ProductCardNormal, SortFilterPanel, globalStore } from '../../components';
-import { maxMinPrice } from '../../utils';
+import { maxMinPrice, priceActualize } from '../../utils';
 
 export default class GridContainer extends React.Component {
     constructor(props) {
@@ -41,7 +41,7 @@ export default class GridContainer extends React.Component {
 
     priceRangeCallback = (item) => {
         const [min, max] = this.state.sortSettings.priceRange;
-        if ((item.price >= min) && (item.price <= max)) return true;
+        if ((priceActualize(item) >= min) && (priceActualize(item) <= max)) return true;
         return false;
     }
 
@@ -55,8 +55,6 @@ export default class GridContainer extends React.Component {
 
     typeSortingCallback = (itemFirst, itemSecond) => {
         if (this.state.sortSettings.typeSorting === "price") {
-            const isSaleActual = (object) => object.sale.onSale ? (new Date(object.sale.saleEndDate) > new Date()) : false;
-            const priceActualize = (object) => isSaleActual(object) ? Number.parseFloat((object.price * (1 - (object.sale.discount / 100))).toFixed(2)) : object.price;
             const firstItemPrice = priceActualize(itemFirst);
             const secondItemPrice = priceActualize(itemSecond);
             if (this.state.sortSettings.directionDescending) {
