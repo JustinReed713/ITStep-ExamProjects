@@ -23,7 +23,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import { globalStore } from '../../components';
 import { addItem, setModel } from '../../data-store/actions/actionsModelStore.js';
 
-import { dateTranslate } from '../../utils';
+import { dateTranslate, Product } from '../../utils';
 
 const GreenRadio = withStyles({
     root: {
@@ -191,7 +191,7 @@ export default class EditProductForm extends React.Component {
         const { object } = this.state;
         const { productID, handleCloseFormClick } = this.props;
         if (productID === null) {
-            globalStore.dispatch(addItem(object));
+            globalStore.dispatch(addItem(Object.assign(new Product(), object)));
         } else {
             const indexFind = () => {
                 return globalStore

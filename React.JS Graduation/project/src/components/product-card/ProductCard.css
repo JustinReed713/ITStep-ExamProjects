@@ -192,8 +192,8 @@
 
 .slider-image-preview {
     position: relative;
-    height: 330px;
-    width: 420px;
+    height: 18vw;
+    width: 23vw;
     background-size: cover;
     border-radius: 3px;
 }
@@ -205,6 +205,10 @@
 
 .product-disclaimer_last-product-slider {
     top: calc(50% - 25px);
+}
+
+.product-disclaimer_name-product-slider {
+    font-size: 1.8vw;
 }
 
 .product-card__action-buttons-container {

@@ -271,7 +271,7 @@ export function ProductCardSlider(props) {
                     {object.count === 1 && (
                         <div className="product-disclaimer product-disclaimer_last-product product-disclaimer_last-product-slider"> Last product</div>
                     )}
-                    <div className="product-disclaimer product-disclaimer_name-product">{object.name} (article: {object.article})</div>
+                    <div className="product-disclaimer product-disclaimer_name-product product-disclaimer_name-product-slider">{object.name} (article: {object.article})</div>
                     <div className="price-container">
                         {object.count > 0 && (
                             <>

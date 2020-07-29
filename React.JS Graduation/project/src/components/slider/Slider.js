@@ -6,51 +6,35 @@ import Slider from "react-slick";
 
 import { ProductCardSlider } from "../../components";
 
-export default class SimpleSlider extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            slidesToShow: 0
-        }
-    }
+export default function SimpleSlider(props) {
+    const [centerPadding, setCenterPadding] = React.useState(adaptiveSize())
 
-    componentDidMount() {
-        this.setSlidesToShow(500)
-    }
+    function adaptiveSize() { return `${Math.round((window.screen.width / 100) * 9)}px`; }
 
-    /* additional methods */
-
-    adaptiveSize = (childWidth) => Math.floor(window.innerWidth / childWidth);
-
-    setSlidesToShow = (childWidth) => this.setState({ slidesToShow: this.adaptiveSize(childWidth) });
-
-    /* render method */
-
-    render() {
-        const settings = {
-            autoplay: true,
-            arrows: false,
-            centerMode: true,
-            centerPadding: "120px",
-            dots: true,
-            infinite: true,
-            speed: 500,
-            slidesToScroll: 1,
-            swipeToSlide: true
-        };
-        window.addEventListener("resize", () => this.setSlidesToShow(500));
-        return (
-            <div>
-                <Slider {...settings} {...this.state}>
-                    {this.props.array.map((item, index) => {
-                        return (
-                            <div key={item.article + "-sliderElement"}>
-                                <ProductCardSlider object={item} />
-                            </div>
-                        )
-                    })}
-                </Slider>
-            </div>
-        );
-    }
+    const settings = {
+        autoplay: true,
+        arrows: false,
+        centerMode: true,
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToScroll: 1,
+        swipeToSlide: true,
+        slidesToShow: 3,
+        centerPadding: centerPadding
+    };
+    window.addEventListener("resize", () => setCenterPadding(adaptiveSize()));
+    return (
+        <div>
+            <Slider {...settings}>
+                {props.array.map((item) => {
+                    return (
+                        <div key={item.article + "-sliderElement"}>
+                            <ProductCardSlider object={item} />
+                        </div>
+                    )
+                })}
+            </Slider>
+        </div>
+    );
 }
