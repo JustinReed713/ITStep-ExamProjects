@@ -1,9 +1,13 @@
-$main-color: #ffffff;
-$dark-color: #4e4e4e;
+$standard-color:rgba(223, 225, 229, 1);
+
+$product-cheap: rgb(156, 156, 156);
+$product-optimal: rgb(0, 185, 0);
+$product-premium: rgb(255, 224, 47);
 
 html {
     &[data-theme="dark"] {
         --theme-primary-color: #4e4e4e;
+        --theme-secondary-color: #dfe1e5;
         background-color: var(--theme-primary-color);
     }
 

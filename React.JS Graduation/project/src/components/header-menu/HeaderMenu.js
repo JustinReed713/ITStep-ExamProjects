@@ -1,4 +1,5 @@
 import './LogInDialog.css';
+import './HeaderMenu.scss';
 import React from 'react';
 import {
     AppBar,
@@ -17,8 +18,9 @@ import {
     Typography
 } from '@material-ui/core';
 
-import { Breadcrumbs, globalStore } from '../../components.js';
+import { Breadcrumbs, globalStore } from '../../components';
 import { setUser, setCart } from '../../data-store/actions/actionsModelStore.js';
+import { textCapitalizer } from '../../utils';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -61,75 +63,76 @@ export default function HeaderMenu(props) {
             <AppBar position="static" color="transparent">
                 <Toolbar variant='dense' className="header-menu__toolbar">
                     <Breadcrumbs />
-                    {globalStore.getState().userName === "" ? (
-                        <Button color="inherit" onClick={handleClickDialogOpen}>Login</Button>
-                    ) : (
-                            <>
-                                <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleMenuOpen}>
-                                    {globalStore.getState().userName}
-                                </Button>
-                                <Menu
-                                    id="simple-menu"
-                                    anchorEl={anchorEl}
-                                    keepMounted
-                                    open={Boolean(anchorEl)}
-                                    onClose={handleMenuClose}
-                                >
-                                    <MenuItem onClick={handleLogOutClick}>LogOut</MenuItem>
-                                </Menu>
-                            </>
-                        )}
+                    <div className="header-menu-toolbar__control-block">
+                        <div className="header-menu-toolbar-control-block__theme-toggle">
+                            <Typography>
+                                {textCapitalizer(document.getElementsByTagName("html")[0].getAttribute("data-theme"))}
+                            </Typography>
+                            <Switch
+                                checked={themeSelect}
+                                onChange={handleThemeSelect}
+                                color="primary"
+                                name="checkedB"
+                            />
+                        </div>
+                        {globalStore.getState().userName === "" ? (
+                            <Button color="inherit" onClick={handleClickDialogOpen}>Login</Button>
+                        ) : (
+                                <>
+                                    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleMenuOpen}>
+                                        {globalStore.getState().userName}
+                                    </Button>
+                                    <Menu
+                                        id="simple-menu"
+                                        anchorEl={anchorEl}
+                                        keepMounted
+                                        open={Boolean(anchorEl)}
+                                        onClose={handleMenuClose}
+                                    >
+                                        <MenuItem onClick={handleLogOutClick}>LogOut</MenuItem>
+                                    </Menu>
+                                </>
+                            )}
+                    </div>
                 </Toolbar>
             </AppBar >
-            <div>
-                <Switch
-                    checked={themeSelect}
-                    onChange={handleThemeSelect}
-                    color="primary"
-                    name="checkedB"
-                />
-                <Typography>
-                    {document.getElementsByTagName("html")[0].getAttribute("data-theme")}
-                </Typography>
-                <Dialog
-                    open={openDialog}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    onClose={handleDialogClose}
-                    aria-labelledby="alert-dialog-slide-title"
-                    aria-describedby="alert-dialog-slide-description"
-                >
-                    <DialogTitle>{"LOG IN"}</DialogTitle>
-                    <div className="log-in-dialog__inputs-wrapper">
-                        <TextField
-                            margin='normal'
-                            id="login-input"
-                            label="Login"
-                            defaultValue={userName}
-                            onChange={(event) => setUserName(event.target.value)}
-                            fullWidth
-                            required
-                        />
-                        <TextField
-                            margin='normal'
-                            id="password-input"
-                            label="Password"
-                            fullWidth
-                            required
-                        />
-                    </div>
-                    <DialogContent>
-                        <DialogContentText>For entering as administrator use template</DialogContentText>
-                        <DialogContentText>admin/admin</DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={logInConfirm} color="primary" variant='outlined'>
-                            LOG IN NOW
+            <Dialog
+                open={openDialog}
+                TransitionComponent={Transition}
+                keepMounted
+                onClose={handleDialogClose}
+                aria-labelledby="alert-dialog-slide-title"
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>{"LOG IN"}</DialogTitle>
+                <div className="log-in-dialog__inputs-wrapper">
+                    <TextField
+                        margin='normal'
+                        id="login-input"
+                        label="Login"
+                        defaultValue={userName}
+                        onChange={(event) => setUserName(event.target.value)}
+                        fullWidth
+                        required
+                    />
+                    <TextField
+                        margin='normal'
+                        id="password-input"
+                        label="Password"
+                        fullWidth
+                        required
+                    />
+                </div>
+                <DialogContent>
+                    <DialogContentText>For entering as administrator use template</DialogContentText>
+                    <DialogContentText>admin/admin</DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={logInConfirm} color="primary" variant='outlined'>
+                        LOG IN NOW
                     </Button>
-                    </DialogActions>
-                </Dialog>
-            </div>
-
+                </DialogActions>
+            </Dialog>
         </>
     )
 }
