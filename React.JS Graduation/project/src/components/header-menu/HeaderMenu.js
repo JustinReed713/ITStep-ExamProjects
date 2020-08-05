@@ -11,8 +11,10 @@ import {
     Menu,
     MenuItem,
     Slide,
+    Switch,
     TextField,
     Toolbar,
+    Typography
 } from '@material-ui/core';
 
 import { Breadcrumbs, globalStore } from '../../components.js';
@@ -26,8 +28,14 @@ export default function HeaderMenu(props) {
     const [openDialog, setOpenDialog] = React.useState(false);
     const [userName, setUserName] = React.useState("");
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [themeSelect, setThemeSelect] = React.useState(false);
 
     const handleClickDialogOpen = () => setOpenDialog(true);
+
+    const handleThemeSelect = (event) => {
+        setThemeSelect(event.target.checked);
+        document.getElementsByTagName("html")[0].setAttribute("data-theme", themeSelect === false ? "dark" : "light")
+    }
 
     const handleDialogClose = () => setOpenDialog(false);
 
@@ -73,43 +81,55 @@ export default function HeaderMenu(props) {
                         )}
                 </Toolbar>
             </AppBar >
-            <Dialog
-                open={openDialog}
-                TransitionComponent={Transition}
-                keepMounted
-                onClose={handleDialogClose}
-                aria-labelledby="alert-dialog-slide-title"
-                aria-describedby="alert-dialog-slide-description"
-            >
-                <DialogTitle>{"LOG IN"}</DialogTitle>
-                <div className="log-in-dialog__inputs-wrapper">
-                    <TextField
-                        margin='normal'
-                        id="login-input"
-                        label="Login"
-                        defaultValue={userName}
-                        onChange={(event) => setUserName(event.target.value)}
-                        fullWidth
-                        required
-                    />
-                    <TextField
-                        margin='normal'
-                        id="password-input"
-                        label="Password"
-                        fullWidth
-                        required
-                    />
-                </div>
-                <DialogContent>
-                    <DialogContentText>For entering as administrator use template</DialogContentText>
-                    <DialogContentText>admin/admin</DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={logInConfirm} color="primary" variant='outlined'>
-                        LOG IN NOW
+            <div>
+                <Switch
+                    checked={themeSelect}
+                    onChange={handleThemeSelect}
+                    color="primary"
+                    name="checkedB"
+                />
+                <Typography>
+                    {document.getElementsByTagName("html")[0].getAttribute("data-theme")}
+                </Typography>
+                <Dialog
+                    open={openDialog}
+                    TransitionComponent={Transition}
+                    keepMounted
+                    onClose={handleDialogClose}
+                    aria-labelledby="alert-dialog-slide-title"
+                    aria-describedby="alert-dialog-slide-description"
+                >
+                    <DialogTitle>{"LOG IN"}</DialogTitle>
+                    <div className="log-in-dialog__inputs-wrapper">
+                        <TextField
+                            margin='normal'
+                            id="login-input"
+                            label="Login"
+                            defaultValue={userName}
+                            onChange={(event) => setUserName(event.target.value)}
+                            fullWidth
+                            required
+                        />
+                        <TextField
+                            margin='normal'
+                            id="password-input"
+                            label="Password"
+                            fullWidth
+                            required
+                        />
+                    </div>
+                    <DialogContent>
+                        <DialogContentText>For entering as administrator use template</DialogContentText>
+                        <DialogContentText>admin/admin</DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={logInConfirm} color="primary" variant='outlined'>
+                            LOG IN NOW
                     </Button>
-                </DialogActions>
-            </Dialog>
+                    </DialogActions>
+                </Dialog>
+            </div>
+
         </>
     )
 }

@@ -1,4 +1,4 @@
-import './ProductCard.css';
+import './ProductCard.scss';
 import { Stub } from '../../globals.js';
 import React from 'react';
 import {

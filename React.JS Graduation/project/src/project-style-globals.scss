@@ -1,0 +1,14 @@
+$main-color: #ffffff;
+$dark-color: #4e4e4e;
+
+html {
+    &[data-theme="dark"] {
+        --theme-primary-color: #4e4e4e;
+        background-color: var(--theme-primary-color);
+    }
+
+    &[data-theme="light"] {
+        --theme-primary-color: #ffffff;
+        background-color: var(--theme-primary-color);
+    }
+}
